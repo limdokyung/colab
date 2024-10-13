@@ -1,0 +1,22 @@
+import pyautogui
+import time
+
+
+def find_and_click(image_path):
+    while True:
+        location = pyautogui.locateOnScreen(image_path, confidence=0.8)
+        if location:
+            pyautogui.click(location)
+            break
+        time.sleep(0.5)
+
+
+def press_key(key):
+    pyautogui.press(key)
+
+
+find_and_click('start.png')
+
+
+for _ in range(10):
+    press_key('space')
